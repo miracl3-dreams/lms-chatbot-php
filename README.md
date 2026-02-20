@@ -3,7 +3,6 @@
 📚 LMS Chatbot - PHP
 
 A simple Library Management System (LMS) built with PHP & MySQL, integrated with a chatbot assistant to help users interact with the system.
-
 This project is designed for learning purposes and can be used as a foundation for building a more advanced LMS with AI integration.
 
 🚀 Features
@@ -35,3 +34,5 @@ Bootstrap
 XAMPP
 
 Cezpdf (for PDF reports)
+
+# CONTINUOUS DEVELOPING!!!!!!
