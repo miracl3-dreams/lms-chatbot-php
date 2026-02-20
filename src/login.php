@@ -68,10 +68,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <form action="login.php" method="POST" id="loginForm">
                 <div class="input-group">
+                    <i class="fa-solid fa-envelope"></i>
                     <input type="email" name="email" placeholder="Email Address" required>
                 </div>
 
                 <div class="input-group password-wrapper">
+                    <i class="fa-solid fa-lock"></i>
                     <input type="password" name="password" id="passwordField" placeholder="Password" required>
                     <span class="toggle-password" id="togglePassword">👁️</span>
                 </div>

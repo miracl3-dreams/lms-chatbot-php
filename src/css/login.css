@@ -66,7 +66,7 @@ body {
     text-align: center;
     color: #1a1a1a;
     font-size: 28px;
-    font-weight: 800;
+    font-weight: 700;
     margin-bottom: 8px;
     letter-spacing: -0.5px;
 }
@@ -126,14 +126,14 @@ input:focus {
 .footer-text {
     text-align: center;
     margin-top: 25px;
-    font-size: 14px;
+    font-size: 12px;
     color: #777;
 }
 
 .footer-text a {
     color: #2ecc71;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 600;
     transition: 0.3s;
 }
 
