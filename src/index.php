@@ -5,30 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Management System</title>
+    <?php include "heading.php" ?>
 </head>
 
-<?php include "heading.php" ?>
-
 <body>
-
     <header class="main-header">
         <nav class="navbar">
             <div class="logo">Lib<span>Flow</span></div>
+
+            <div class="nav-links" id="nav-list">
+                <a href="login.php" class="btn-nav">Login</a>
+                <a href="register.php" class="btn-nav btn-get-started">Get Started</a>
+            </div>
 
             <div class="menu-toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
-
-            <div class="nav-links" id="nav-list">
-                <a href="login.php" class="btn-nav">Login</a>
-                <a href="register.php" class="btn-nav">Get Started</a>
-            </div>
         </nav>
     </header>
-
-    <script src="javascript/burger-menu.js"></script>
 
     <main class="hero-section">
         <div class="hero-content">
@@ -45,6 +41,7 @@
         <p>&copy; 2026 LibFlow System. All rights reserved.</p>
     </footer>
 
+    <script src="javascript/burger-menu.js"></script>
 </body>
 
 </html>
