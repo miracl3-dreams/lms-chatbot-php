@@ -1,0 +1,2 @@
+# Ignore dashboard stats cache
+src/admin/cache/dashboard_stats.json
