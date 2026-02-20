@@ -44,26 +44,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="en">
-<?php include "heading.php" ?>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include "heading.php" ?>
+    <title>Library Registration</title>
 </head>
 
 <body>
     <div class="register">
-        <h2 style="text-align: center; margin-bottom: 20px; color: #333;">Create Account</h2>
+        <h2 style="text-align: center; margin-bottom: 20px; color: #333;">Create User Account</h2>
         <form action="register.php" method="POST">
-            <input type="text" name="name" placeholder="Full Name" required>
-            <input type="email" name="email" placeholder="Email Address" required>
-            <input type="password" name="password" placeholder="Password" required>
+            <div class="input-group">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="name" placeholder="Full Name" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" name="email" placeholder="Email Address" required>
+            </div>
+
+            <div class="input-group password-wrapper">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="password" id="passwordField" placeholder="Password" required>
+                <span class="toggle-password" id="togglePassword">👁️</span>
+            </div>
+
             <button type="submit">Sign Up</button>
         </form>
         <p style="text-align: center; font-size: 12px; margin-top: 15px; color: #777;">
-            Already have an account? <a href="login.php" style="color: #2ecc71; text-decoration: none;">Log in</a>
+            Already have an account? <a href="login.php"
+                style="color: #2ecc71; text-decoration: none; font-weight: 700;">Log in</a>
         </p>
     </div>
+
+    <script src="javascript/register.js"></script>
 
 </body>
 
