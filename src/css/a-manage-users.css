@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.profile-wrapper {
+    width: 100%;
+    max-width: 400px;
+}
+
+.profile-card {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+}
+
+/* .card-top-actions {
+    display: flex;
+    margin-bottom: 5px;
+} */
+
+.btn-back {
+    text-decoration: none;
+    color: #64748b;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.avatar-circle {
+    width: 45px;
+    height: 45px;
+    background: #2ecc71;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+}
+
+.profile-header h2 {
+    color: #1e293b;
+    font-size: 1.1rem;
+}
+
+.badge {
+    background: #f0fdf4;
+    color: #16a34a;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+}
+
+.alert {
+    padding: 8px;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+}
+
+.form-section {
+    margin-bottom: 15px;
+}
+
+.form-section h3 {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+.input-group label {
+    font-size: 0.75rem;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.9rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-save,
+.btn-cancel {
+    padding: 10px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-save {
+    flex: 2;
+    background: #2ecc71;
+    color: white;
+}
+
+.btn-cancel {
+    flex: 1;
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+@media (max-width: 600px) {
+    body {
+        overflow-y: auto;
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .profile-wrapper {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 800px) {
+    body {
+        overflow-y: auto;
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .profile-wrapper {
+        margin-top: 50px;
+    }
+}
