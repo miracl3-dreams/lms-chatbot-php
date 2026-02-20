@@ -165,80 +165,79 @@ unset($t);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transaction Logs - Admin</title>
+    <?php include "../heading.php"; ?>
     <link rel="stylesheet" href="view_transactions.css">
 </head>
-
-<?php include "../heading.php"; ?>
 
 <body>
     <div class="admin-container">
         <header class="admin-header">
-            <h2>Transaction History</h2>
+            <div class="header-title">
+                <h2>Transaction History</h2>
+                <p>Monitor and manage all book movement</p>
+            </div>
 
             <div class="header-actions">
-
-                <form method="GET" action="view_transactions.php" style="display:flex; gap:10px; align-items:center;">
-                    <input type="text" name="search" value="<?php echo h($search); ?>"
-                        placeholder="Search transaction..." class="search-bar">
-
-                    <button type="submit" class="btn-export">Search</button>
-
-                    <a class="btn-export"
-                        href="view_transactions.php?export=csv&search=<?php echo urlencode($search); ?>"
-                        style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">
-                        Export to CSV
-                    </a>
+                <form method="GET" action="view_transactions.php" class="search-form">
+                    <div class="search-input-wrapper">
+                        <input type="text" name="search" value="<?php echo h($search); ?>"
+                            placeholder="Search transactions..." class="search-bar">
+                    </div>
+                    <button type="submit" class="btn-search">Search</button>
                 </form>
-
             </div>
         </header>
 
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Borrower</th>
-                        <th>Book Title</th>
-                        <th>Date Borrowed</th>
-                        <th>Return Date</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
+        <div class="toolbar">
+            <div class="filter-info">Recent Transaction Logs</div>
+            <a href="view_transactions.php?export=csv&search=<?php echo urlencode($search); ?>" class="btn-export">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>Export CSV</span>
+            </a>
+        </div>
 
-                <tbody>
-
-                    <?php if (count($transactions) == 0) { ?>
+        <div class="table-card">
+            <div class="table-responsive">
+                <table>
+                    <thead>
                         <tr>
-                            <td colspan="7" style="text-align:center; padding:20px;">
-                                No transactions found.
-                            </td>
+                            <th>ID</th>
+                            <th>Borrower</th>
+                            <th>Book Title</th>
+                            <th>Borrowed</th>
+                            <th>Return</th>
+                            <th>Status</th>
+                            <th style="text-align: center;">Action</th>
                         </tr>
-                    <?php } else { ?>
-
-                        <?php foreach ($transactions as $row) { ?>
+                    </thead>
+                    <tbody>
+                        <?php if (count($transactions) == 0): ?>
                             <tr>
-                                <td>#TR-<?php echo h($row["id"]); ?></td>
-                                <td><?php echo h($row["borrower_name"]); ?></td>
-                                <td><?php echo h($row["book_title"]); ?></td>
-                                <td><?php echo h(formatDate($row["issue_date"])); ?></td>
-                                <td><?php echo h(formatDate($row["return_date"])); ?></td>
-                                <td><?php echo getStatusBadge($row["final_status"]); ?></td>
-
-                                <td>
-                                    <a href="view_transaction_details.php?id=<?php echo h($row["id"]); ?>" class="btn-view"
-                                        style="text-decoration:none;">
-                                        Details
-                                    </a>
-                                </td>
+                                <td colspan="7" class="empty-row">No transactions found.</td>
                             </tr>
-                        <?php } ?>
-
-                    <?php } ?>
-
-                </tbody>
-            </table>
+                        <?php else: ?>
+                            <?php foreach ($transactions as $row): ?>
+                                <tr>
+                                    <td class="tr-id">#TR-<?php echo h($row["id"]); ?></td>
+                                    <td><strong><?php echo h($row["borrower_name"]); ?></strong></td>
+                                    <td class="book-title"><?php echo h($row["book_title"]); ?></td>
+                                    <td><?php echo h(formatDate($row["issue_date"])); ?></td>
+                                    <td><?php echo h(formatDate($row["return_date"])); ?></td>
+                                    <td><?php echo getStatusBadge($row["final_status"]); ?></td>
+                                    <td style="text-align: center;">
+                                        <a href="view_transaction_details.php?id=<?php echo h($row["id"]); ?>"
+                                            class="btn-view">Details</a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </body>
