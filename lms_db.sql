@@ -86,7 +86,7 @@ CREATE TABLE `users` (
 /*Data for the table `users` */
 
 insert  into `users`(`id`,`name`,`email`,`password`,`role`,`created_at`) values 
-(1,'Admin User','admin@lms.com','admin123','admin','2026-02-20 10:45:52'),
+-- (1,'Admin User','admin@lms.com','admin123','admin','2026-02-20 10:45:52'),
 (2,'John Doe','john@example.com','123456','user','2026-02-20 10:45:52'),
 (3,'Jane Smith','jane@example.com','123456','user','2026-02-20 10:45:52');
 
