@@ -14,23 +14,40 @@ if (!isset($_SESSION["user_role"]) || $_SESSION["user_role"] !== "admin") {
     exit;
 }
 
-// TOTAL BOOKS (sum of quantity)
-$stmtBooks = $link_id->prepare("SELECT IFNULL(SUM(quantity), 0) AS total_books FROM books");
-$stmtBooks->execute();
-$totalBooks = $stmtBooks->fetch(PDO::FETCH_ASSOC);
-$total_books = intval($totalBooks["total_books"] ?? 0);
+$cacheDir = __DIR__ . "/cache";
+if (!is_dir($cacheDir))
+    mkdir($cacheDir, 0755, true);
 
-// ACTIVE USERS (role = user)
-$stmtUsers = $link_id->prepare("SELECT COUNT(*) AS active_users FROM users WHERE role = 'user'");
-$stmtUsers->execute();
-$totalUsers = $stmtUsers->fetch(PDO::FETCH_ASSOC);
-$active_users = intval($totalUsers["active_users"] ?? 0);
+$cacheFile = $cacheDir . "/dashboard_stats.json";
+$cacheTTL = 300;
 
-// BORROWED BOOKS (transactions status = borrowed)
-$stmtBorrowed = $link_id->prepare("SELECT COUNT(*) AS borrowed_count FROM transactions WHERE status = 'borrowed'");
-$stmtBorrowed->execute();
-$totalBorrowed = $stmtBorrowed->fetch(PDO::FETCH_ASSOC);
-$borrowed = intval($totalBorrowed["borrowed_count"] ?? 0);
+if (file_exists($cacheFile) && (time() - filemtime($cacheFile)) < $cacheTTL) {
+    $stats = json_decode(file_get_contents($cacheFile), true);
+    $total_books = intval($stats['total_books'] ?? 0);
+    $active_users = intval($stats['active_users'] ?? 0);
+    $borrowed = intval($stats['borrowed'] ?? 0);
+} else {
+    $stmtBooks = $link_id->prepare("SELECT IFNULL(SUM(quantity), 0) AS total_books FROM books");
+    $stmtBooks->execute();
+    $totalBooks = $stmtBooks->fetch(PDO::FETCH_ASSOC);
+    $total_books = intval($totalBooks["total_books"] ?? 0);
+
+    $stmtUsers = $link_id->prepare("SELECT COUNT(*) AS active_users FROM users WHERE role = 'user'");
+    $stmtUsers->execute();
+    $totalUsers = $stmtUsers->fetch(PDO::FETCH_ASSOC);
+    $active_users = intval($totalUsers["active_users"] ?? 0);
+
+    $stmtBorrowed = $link_id->prepare("SELECT COUNT(*) AS borrowed_count FROM transactions WHERE status = 'borrowed'");
+    $stmtBorrowed->execute();
+    $totalBorrowed = $stmtBorrowed->fetch(PDO::FETCH_ASSOC);
+    $borrowed = intval($totalBorrowed["borrowed_count"] ?? 0);
+
+    file_put_contents($cacheFile, json_encode([
+        'total_books' => $total_books,
+        'active_users' => $active_users,
+        'borrowed' => $borrowed
+    ]));
+}
 ?>
 
 <!DOCTYPE html>
