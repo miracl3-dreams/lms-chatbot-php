@@ -1,0 +1,12 @@
+# Ignore dashboard stats cache
+src/admin/cache/dashboard_stats.json
+
+# Environment
+.env
+.env.local
+.env.*.php
+
+# Composer dependencies
+/vendor/
+composer.json
+composer.lock
