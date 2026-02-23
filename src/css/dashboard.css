@@ -43,7 +43,7 @@ body {
 .logo {
     font-size: 1.6rem;
     font-weight: 800;
-    margin-bottom: 40px;
+    margin-bottom: 40px !important;
     color: var(--text-main);
 }
 
@@ -290,7 +290,7 @@ nav a:hover {
     }
 
     .logo {
-        margin-bottom: 0;
+        margin-top: 5px !important;
         font-size: 1.3rem;
     }
 
@@ -300,6 +300,7 @@ nav a:hover {
         gap: 5px;
         cursor: pointer;
         padding: 5px;
+        margin-bottom: 35px !important;
     }
 
     .bar {
