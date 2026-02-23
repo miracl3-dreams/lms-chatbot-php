@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="css/return.css">
     <link rel="stylesheet" type="text/css" href="css/dashboard.css">
     <link rel="stylesheet" type="text/css" href="css/chatbot.css">
+    <link rel="stylesheet" type="text/css" href="../css/book-history.css">
     <link rel="stylesheet" type="text/css" href="../css/a-manage-users.css">
     <link rel="stylesheet" type="text/css" href="../css/a-add-book.css">
     <link rel="stylesheet" type="text/css" href="../css/a-view-book.css">
