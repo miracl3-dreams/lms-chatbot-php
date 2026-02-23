@@ -1,6 +1,6 @@
 <!-- < / ?php
-require_once "db_config.php";
-require_once "include/lx.pdodb.php";
+require_once "../db_config.php";
+require_once "../include/lx.pdodb.php";
 
 $adminPassword = password_hash("admin123", PASSWORD_DEFAULT);
 
