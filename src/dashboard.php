@@ -87,9 +87,9 @@ $firstName = explode(" ", trim($_SESSION["user_name"] ?? "User"))[0];
                     <h1>Welcome, <?php echo h($firstName); ?>!</h1>
                     <p>It's a great day to read a book.</p>
                 </div>
-                <div class="search-box">
+                <!-- <div class="search-box">
                     <input type="text" placeholder="Search for books...">
-                </div>
+                </div> -->
             </header>
 
             <div class="stats-row">
@@ -132,9 +132,9 @@ $firstName = explode(" ", trim($_SESSION["user_name"] ?? "User"))[0];
                             <?php } ?>
                         </div>
 
-                        <div style="margin-top: 15px; text-align:center;">
-                            <a href="borrow.php" class="btn-primary">Borrow Another Book</a>
-                            <a href="return.php" class="btn-primary">Return a Book</a>
+                        <div class="lower-action-buttons">
+                            <a href="borrow.php" class="btn-primary">Borrow Another</a>
+                            <a href="return.php" class="btn-primary">Return Book</a>
                         </div>
 
                     <?php } ?>

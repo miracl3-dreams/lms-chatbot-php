@@ -176,6 +176,14 @@ nav a:hover {
     gap: 30px;
 }
 
+.lower-action-buttons {
+    margin-top: 15px;
+    text-align: center;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+}
+
 .info-card,
 .status-card {
     background: var(--bg-card);
